@@ -348,6 +348,29 @@
         }
       }
     },
+    "shipping_bar": {
+      "name": "Shipping Bar",
+      "settings": {
+        "show_shipping_bar": {
+          "label": "Show Shipping Bar in Cart Drawer"
+        },
+        "standard_free_shipping": {
+          "label": "Free Standard Shipping"
+        },
+        "express_free_shipping": {
+          "label": "Free Express Shipping"
+        },
+        "shipping_bar_color": {
+          "label": "Progress Bar Color"
+        },
+        "limit_product": {
+          "label": "Product count"
+        },
+        "cart_drawer_upsell_type": {
+          "label": "Cart Upsell Type"
+        }
+      }
+    },
     "layout": {
       "name": "Layout",
       "settings": {

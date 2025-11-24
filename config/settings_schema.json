@@ -1453,7 +1453,7 @@
     ]
   },
   {
-    "name": "Shipping Bar by Foysal Ahmed",
+    "name": "t:settings_schema.shipping_bar.name",
     "settings": [
       {
         "type": "paragraph",
@@ -1462,31 +1462,31 @@
       {
         "type": "checkbox",
         "id": "show_shipping_bar",
-        "label": "Show Shipping Bar in Cart Drawer",
+        "label": "t:settings_schema.shipping_bar.settings.show_shipping_bar.label",
         "default": false
       },
       {
         "type": "number",
         "id": "standard_free_shipping",
-        "label": "Free Standard Shipping",
+        "label": "t:settings_schema.shipping_bar.settings.standard_free_shipping.label",
         "default": 600
       },
       {
         "type": "number",
         "id": "express_free_shipping",
-        "label": "Free Express Shipping",
+        "label": "t:settings_schema.shipping_bar.settings.express_free_shipping.label",
         "default": 1000
       },
       {
         "type": "color",
         "id": "shipping_bar_color",
-        "label": "Progress Bar Color",
+        "label": "t:settings_schema.shipping_bar.settings.shipping_bar_color.label",
         "default": "#cccccc"
       },
       {
         "type": "range",
         "id": "limit_product",
-        "label": "Product count",
+        "label": "t:settings_schema.shipping_bar.settings.limit_product.label",
         "min": 0,
         "max": 10,
         "step": 1,
@@ -1495,7 +1495,7 @@
       {
         "type": "select",
         "id": "cart_drawer_upsell_type",
-        "label": "Cart Upsell Type",
+        "label": "t:settings_schema.shipping_bar.settings.cart_drawer_upsell_type.label",
         "options": [
           {
             "value": "recommendations",

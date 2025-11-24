@@ -18,8 +18,7 @@
     class="complementary-products"
     data-url="{{ routes.product_recommendations_url }}?limit={{ products_to_recommend }}{% if settings.cart_drawer_upsell_type == 'complementary' %}&intent=complementary{% endif %}"
     data-section-id="{{ section_id }}"
-    data-cart-items="{{ cart_items_json | strip_newlines | strip | escape }}"
-    data-max-position="{{ products_to_recommend }}"
+    data-cart-items="{{ cart_items_json | strip_newlines | strip | escape }}"    
     data-products-to-show="{{ products_to_show }}"
     >
       {% if recommendations.performed and recommendations.products_count > 0 %}
