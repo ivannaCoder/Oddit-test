@@ -116,6 +116,7 @@
   "products": {
     "product": {
       "add_to_cart": "Add to cart",
+      "add": "Add",
       "choose_options": "Choose options",
       "choose_product_options": "Choose options for {{ product_name }}",
       "description": "Description",
@@ -322,7 +323,16 @@
       "login": {
         "title": "Have an account?",
         "paragraph_html": "<a href=\"{{ link }}\" class=\"link underlined-link\">Log in</a> to check out faster."
-      }
+      },
+      "free_shipping_text": {
+        "standard_text": "Free Standard Shipping",
+        "express_text": "Free Express Shipping",
+        "standard_text_unlock": "to unlock Free Standard Shipping!",
+        "express_text_unlock": "to unlock Free Express Shipping!",
+        "free_shipping_message": "You have Free Express Shipping !!!"
+
+      },
+      "upsell_title": "You may also like"
     },
     "footer": {
       "payment": "Payment methods"

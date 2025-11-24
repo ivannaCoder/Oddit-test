@@ -1,0 +1,122 @@
+{% assign progress_bar_color = settings.shipping_bar_color %}
+
+<div class="upsell-container">
+  {% assign standard_shipping_value = settings.standard_free_shipping | times: 100 %}
+  {% assign express_shipping_value = settings.express_free_shipping | times: 100 %}
+  {% assign cart_total = cart.total_price %}
+  {% assign standard_shipping_value_left = standard_shipping_value | minus: cart_total %}
+  {% assign express_shipping_value_left = express_shipping_value | minus: cart_total %}
+  {% assign shipping_percentage_fraction = cart_total | times: 100 | divided_by: express_shipping_value %}
+  {% assign standard_shipping_fraction = standard_shipping_value | times: 100 | divided_by: express_shipping_value %}
+  <p class="shipping-message">
+    {% if standard_shipping_value_left > 0 %}
+      <span class="free_shipping_notice">Add {{ standard_shipping_value_left | money }} {{ 'sections.cart.free_shipping_text.standard_text_unlock' | t }}</span>
+    {% elsif  express_shipping_value_left > 0 %}
+      <span class="free_shipping_notice">Add {{ express_shipping_value_left | money }} {{ 'sections.cart.free_shipping_text.express_text_unlock' | t }}</span>
+    {% elsif  express_shipping_value_left <= 0 %}
+      <span>{{ 'sections.cart.free_shipping_text.free_shipping_message' | t }}</span>
+    {% endif %}
+  </p>
+
+  <div class="progress-bar">
+    <div class="free-shipping-icon free-shipping-icon__standard {% if standard_shipping_value_left <= 0 %} iconicion {% endif %}"> 
+      {{ 'icon-free-shipping.svg' | inline_asset_content }}
+      <span class="free-shipping-text standard">{{ 'sections.cart.free_shipping_text.standard_text' | t }}</span>
+    </div>
+    <div class="progress-bar-done" data-progress="loading"><span></span></div>
+    <div class="free-shipping-icon free-shipping-icon__express {% if express_shipping_value_left <= 0 %} iconicion {% endif %}"> 
+      {{ 'icon-free-shipping.svg' | inline_asset_content }}
+      <span class="free-shipping-text express">{{ 'sections.cart.free_shipping_text.express_text' | t }}</span>
+    </div>
+  </div>
+
+</div>
+
+<style>
+  .upsell-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    padding: 0 1.5rem 4rem 1.5rem;
+    border-top: 1px solid #D9DAD9;
+    border-bottom: 1px solid #D9DAD9;
+  }
+
+  .progress-bar{
+    background-color: #CCCCCC;
+    display: flex;
+    height: 5px;
+    width: 100%;
+    position: relative;
+    align-items: center;
+  }
+  
+  .progress-bar-done{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    background-color: {{ progress_bar_color }};
+    background-image: repeating-linear-gradient(
+      to left,
+      {{ progress_bar_color }},
+      {{ progress_bar_color | color_lighten: 10 }},
+      {{ progress_bar_color | color_lighten: 20 }}
+    );
+    box-shadow: 0 5px 5px -6px {{ progress_bar_color }};
+    border-radius: 0.75em;
+    height: 100%;
+    transition: 1s ease 0.3s;
+    max-width: 100%;
+    width: {{ shipping_percentage_fraction }}%;
+  }
+  
+  .free-shipping-icon{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    background-color: #CCCCCC;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .free-shipping-icon__standard{
+    left: {{ standard_shipping_fraction }}%;    
+  }
+
+  .free-shipping-icon__express{
+    right: 0;    
+  }
+
+  .progress-bar::before{
+    content: ' ';
+  }
+
+  .iconicion{
+    box-shadow: 0 0 10px rgba(62, 101, 207, 0.5);
+    background-color: #000;
+    transition: 1s ease 0.7s;
+  }
+
+  .free-shipping-text {
+    position: absolute;
+    top: 20px;
+    width: max-content;
+    font-style: italic;
+    font-size: 11px;
+  }
+
+  .free-shipping-text.express {
+    right: 0;
+  }
+
+  .shipping-message {
+    line-height: 140%;
+    font-style: italic;
+    text-align: center;
+  }   
+
+</style>

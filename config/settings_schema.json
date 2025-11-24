@@ -1451,5 +1451,64 @@
         "default": "scheme-1"
       }
     ]
+  },
+  {
+    "name": "Shipping Bar by Foysal Ahmed",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Subscribe my channel [Foysal Ahmed](https:\/\/youtube.com\/@foysalshopifyexpert?sub_confirmation=1)"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_shipping_bar",
+        "label": "Show Shipping Bar in Cart Drawer",
+        "default": false
+      },
+      {
+        "type": "number",
+        "id": "standard_free_shipping",
+        "label": "Free Standard Shipping",
+        "default": 600
+      },
+      {
+        "type": "number",
+        "id": "express_free_shipping",
+        "label": "Free Express Shipping",
+        "default": 1000
+      },
+      {
+        "type": "color",
+        "id": "shipping_bar_color",
+        "label": "Progress Bar Color",
+        "default": "#cccccc"
+      },
+      {
+        "type": "range",
+        "id": "limit_product",
+        "label": "Product count",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "default": 4
+      },
+      {
+        "type": "select",
+        "id": "cart_drawer_upsell_type",
+        "label": "Cart Upsell Type",
+        "options": [
+          {
+            "value": "recommendations",
+            "label": "Auto Recommendations"
+          },
+          {
+            "value": "complementary",
+            "label": "Complementary"
+          }
+        ],
+        "default": "complementary",
+        "info": "Auto Recommendations are automatically generated based on cart contents. Complementary is based on selected complementary products in the Shopify Search & Discovery app."
+      }
+    ]
   }
 ]
